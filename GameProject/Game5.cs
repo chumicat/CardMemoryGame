@@ -49,6 +49,7 @@ namespace GameProject
         /// It will show the scoresboard and user should selected what to do next.
         /// </summary>
         private void switchFrame() {
+            t_counter /= 2;
             ScoreBoard s = new ScoreBoard(this);
             return;
         }
@@ -251,6 +252,11 @@ namespace GameProject
         public const int HEIGHT_GAP = 38;
         public const int SHUFFLE_TIMES = 200;
         public const int DELAY_TIME = 1200;
+        public const int MIN_STEP = ROW_SIZE * COL_SIZE / 2;
+        public const int MAX_STEP = 200 + MIN_STEP;
+        public const int STEP_SCALES = 1;
+        public const int MAX_TIME = 180;
+        public const int TIME_SCALE = 2;
         public const String S_TRUE = "../../Resources/sound/true.wav";
         public const String S_FALSE = "../../Resources/sound/false.wav";
         public const String M_BACKGROUND = "background.mp3";

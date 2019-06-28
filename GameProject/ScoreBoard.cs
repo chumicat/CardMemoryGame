@@ -17,8 +17,11 @@ namespace GameProject
         {
             InitializeComponent();
             parent = p;
+            int t_scores = parent.t_counter > DEFINE.MAX_TIME ? 0 : (DEFINE.MAX_TIME - parent.t_counter) * DEFINE.TIME_SCALE;
+            int s_scores = parent.s_counter > DEFINE.MAX_STEP ? 0 : (DEFINE.MAX_STEP - parent.s_counter) * DEFINE.STEP_SCALES;
             this.r_Time.Text = Convert.ToString(parent.t_counter);
             this.r_Step.Text = Convert.ToString(parent.s_counter);
+            this.r_Scores.Text = Convert.ToString((t_scores + s_scores));
             this.Show();
         }
 

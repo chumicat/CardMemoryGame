@@ -251,7 +251,7 @@ namespace GameProject
     class DEFINE
     {
         public static int ROW_SIZE = 4;
-        public static int COL_SIZE = 1;
+        public static int COL_SIZE = 8;
         public const int WIDTH_GAP = 16;
         public const int HEIGHT_GAP = 38;
         public const int SHUFFLE_TIMES = 200;

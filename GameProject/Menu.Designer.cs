@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.b_game5 = new System.Windows.Forms.Button();
             this.l_Rule = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.l_CardStyle = new System.Windows.Forms.Label();
@@ -53,7 +54,6 @@
             this.r_Col = new System.Windows.Forms.NumericUpDown();
             this.message = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.b_game5 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -96,6 +96,19 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(772, 279);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // b_game5
+            // 
+            this.b_game5.BackgroundImage = global::GameProject.Properties.Resources.enterButton;
+            this.b_game5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.b_game5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.b_game5.Location = new System.Drawing.Point(3, 3);
+            this.b_game5.Name = "b_game5";
+            this.b_game5.Size = new System.Drawing.Size(380, 273);
+            this.b_game5.TabIndex = 0;
+            this.b_game5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.b_game5.UseVisualStyleBackColor = true;
+            this.b_game5.Click += new System.EventHandler(this.b_game5_Click);
             // 
             // l_Rule
             // 
@@ -398,19 +411,6 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // b_game5
-            // 
-            this.b_game5.BackgroundImage = global::GameProject.Properties.Resources.enterButton;
-            this.b_game5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b_game5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.b_game5.Location = new System.Drawing.Point(3, 3);
-            this.b_game5.Name = "b_game5";
-            this.b_game5.Size = new System.Drawing.Size(380, 273);
-            this.b_game5.TabIndex = 0;
-            this.b_game5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.b_game5.UseVisualStyleBackColor = true;
-            this.b_game5.Click += new System.EventHandler(this.b_game5_Click);
             // 
             // Menu
             // 

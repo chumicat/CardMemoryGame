@@ -35,6 +35,8 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.l_CardType = new System.Windows.Forms.Label();
             this.r_CardType = new System.Windows.Forms.ComboBox();
+            this.l_Attribute = new System.Windows.Forms.Label();
+            this.r_AutoFlip = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -97,17 +99,19 @@
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.03268F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.96732F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.31606F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.68394F));
             this.tableLayoutPanel3.Controls.Add(this.l_CardType, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.r_CardType, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.l_Attribute, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.r_AutoFlip, 1, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.42105F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.57895F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 170F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(772, 266);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
@@ -118,11 +122,10 @@
             this.l_CardType.Font = new System.Drawing.Font("標楷體", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.l_CardType.Location = new System.Drawing.Point(3, 0);
             this.l_CardType.Name = "l_CardType";
-            this.l_CardType.Size = new System.Drawing.Size(303, 46);
+            this.l_CardType.Size = new System.Drawing.Size(173, 50);
             this.l_CardType.TabIndex = 0;
             this.l_CardType.Text = "Card Type";
             this.l_CardType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.l_CardType.Click += new System.EventHandler(this.l_playerNumber_Click);
             // 
             // r_CardType
             // 
@@ -133,11 +136,34 @@
             this.r_CardType.Items.AddRange(new object[] {
             "T00. Color Heaven",
             "T01. Cat and Fish"});
-            this.r_CardType.Location = new System.Drawing.Point(312, 3);
+            this.r_CardType.Location = new System.Drawing.Point(182, 3);
             this.r_CardType.Name = "r_CardType";
-            this.r_CardType.Size = new System.Drawing.Size(457, 40);
+            this.r_CardType.Size = new System.Drawing.Size(587, 40);
             this.r_CardType.TabIndex = 1;
-            this.r_CardType.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // l_Attribute
+            // 
+            this.l_Attribute.AutoSize = true;
+            this.l_Attribute.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.l_Attribute.Font = new System.Drawing.Font("標楷體", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.l_Attribute.Location = new System.Drawing.Point(3, 50);
+            this.l_Attribute.Name = "l_Attribute";
+            this.l_Attribute.Size = new System.Drawing.Size(173, 50);
+            this.l_Attribute.TabIndex = 2;
+            this.l_Attribute.Text = "Attribute";
+            this.l_Attribute.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // r_AutoFlip
+            // 
+            this.r_AutoFlip.AutoSize = true;
+            this.r_AutoFlip.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.r_AutoFlip.Font = new System.Drawing.Font("標楷體", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.r_AutoFlip.Location = new System.Drawing.Point(182, 53);
+            this.r_AutoFlip.Name = "r_AutoFlip";
+            this.r_AutoFlip.Size = new System.Drawing.Size(587, 44);
+            this.r_AutoFlip.TabIndex = 3;
+            this.r_AutoFlip.Text = "AutoFlip";
+            this.r_AutoFlip.UseVisualStyleBackColor = true;
             // 
             // Menu
             // 
@@ -168,6 +194,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label l_CardType;
         private System.Windows.Forms.ComboBox r_CardType;
+        private System.Windows.Forms.Label l_Attribute;
+        private System.Windows.Forms.CheckBox r_AutoFlip;
     }
 }
 

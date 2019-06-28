@@ -25,29 +25,24 @@ namespace GameProject
         {
             if (this.r_CardType.SelectedItem == null)
                 return;
-            else if (this.r_CardType.SelectedItem.Equals(this.r_CardType.Items[0]))
-                Game5.C_FOLDER = "T00";
-            else if (this.r_CardType.SelectedItem.Equals(this.r_CardType.Items[1]))
-                Game5.C_FOLDER = "T01";
-            else
-                Game5.C_FOLDER = "T00";
+            else{
+                for (int n = 0; n < r_CardType.Items.Count; n++) {
+                    if (this.r_CardType.SelectedItem.Equals(this.r_CardType.Items[n])) {
+                        if(n<10)
+                            Game5.C_FOLDER = "T0" + n.ToString();
+                        else
+                            Game5.C_FOLDER = "T" + n.ToString();
+                    }
+                }
+
+            }
             Game5 t = new Game5(this);
+            t.autoFlipBack = this.r_AutoFlip.Checked;
         }
 
         private void Menu_Load(object sender, EventArgs e)
         {
 
         }
-
-        private void l_playerNumber_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

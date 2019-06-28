@@ -73,8 +73,7 @@ namespace GameProject
                     this.Controls.Add(buttons[x, y]);
                     buttons[x, y].Size = new Size((this.Width - DEFINE.WIDTH_GAP) / DEFINE.COL_SIZE, (this.Height - DEFINE.HEIGHT_GAP) / DEFINE.ROW_SIZE);
                     buttons[x, y].Click += new EventHandler(this.Button_Click);
-                    //buttons[x, y].Text = Convert.ToString(index(x, y));
-                    buttons[x, y].Name = Convert.ToString(index(x, y));
+                    buttons[x, y].Name = index(x, y).ToString();
                     plane[index(x, y)] = index(x, y)%(DEFINE.COL_SIZE* DEFINE.ROW_SIZE/2);
                 }
             }
@@ -114,7 +113,7 @@ namespace GameProject
             // tmp part to make num print on screem
             //for (int y = 0; y < DEFINE.ROW_SIZE; y++)
             //    for (int x = 0; x < DEFINE.COL_SIZE; x++)
-            //        buttons[x, y].Text = Convert.ToString(plane[index(x, y)]);
+            //        buttons[x, y].Text = plane[index(x, y)].ToString();
 
             return;
         }
@@ -185,9 +184,9 @@ namespace GameProject
         private String cardPhotoAddress(int num) {
 
             if (num < 10 && num >= 0)
-                return DEFINE.C_PRE + "0" + Convert.ToString(num) + DEFINE.C_POST;
+                return DEFINE.C_PRE + "0" + num.ToString() + DEFINE.C_POST;
             else if (num >= 10 && num < 16)
-                return DEFINE.C_PRE + Convert.ToString(num) + DEFINE.C_POST;
+                return DEFINE.C_PRE + num.ToString() + DEFINE.C_POST;
             else
                 return DEFINE.C_BACK;   // error
         }
@@ -227,7 +226,7 @@ namespace GameProject
         private void timer1_Tick(object sender, EventArgs e)
         {
             t_counter++;
-            Text = Convert.ToString(t_counter);
+            Text = t_counter.ToString();
         }
 
         /// <summary>

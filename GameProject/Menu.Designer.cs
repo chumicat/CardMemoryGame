@@ -86,6 +86,7 @@
             // b_game6
             // 
             this.b_game6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.b_game6.ImageKey = "(無)";
             this.b_game6.Location = new System.Drawing.Point(389, 3);
             this.b_game6.Name = "b_game6";
             this.b_game6.Size = new System.Drawing.Size(380, 261);
@@ -153,6 +154,7 @@
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Menu_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);

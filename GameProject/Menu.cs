@@ -21,5 +21,10 @@ namespace GameProject
         {
             Game5 t = new Game5(this);
         }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

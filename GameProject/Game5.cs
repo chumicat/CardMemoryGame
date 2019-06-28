@@ -16,34 +16,49 @@ namespace GameProject
 {
     public partial class Game5 : Form
     {
-        Form1 parent;
-        Button[,] buttons = new Button[DEFINE.COL_SIZE, DEFINE.ROW_SIZE];
-        int[] plane = new int[DEFINE.COL_SIZE*DEFINE.ROW_SIZE];
-        Random rnd = new Random();
-        int t_conumter = 0;
-        int remaining_card; // unit is pair
-        SoundPlayer sound_true = new SoundPlayer(DEFINE.S_TRUE);
-        SoundPlayer sound_false = new SoundPlayer(DEFINE.S_FALSE);
-        WindowsMediaPlayer wmp = new WindowsMediaPlayer();
+        // plane , tool and reference
+        private Button[,] buttons = new Button[DEFINE.COL_SIZE, DEFINE.ROW_SIZE];
+        private int[] plane = new int[DEFINE.COL_SIZE * DEFINE.ROW_SIZE];
+        private Random rnd = new Random();
+        public Menu parent;
 
-        public Game5(Form1 p)
+        // counter to store something
+        private int remaining_card; // unit is pair
+        public int t_counter = 0;   // time passing counter
+        public int s_counter = 0;   // step using counter (pair for 1 plus)
+
+        // music and effects
+        private SoundPlayer sound_true = new SoundPlayer(DEFINE.S_TRUE);
+        private SoundPlayer sound_false = new SoundPlayer(DEFINE.S_FALSE);
+        private WindowsMediaPlayer wmp = new WindowsMediaPlayer();
+
+        // constructor
+        public Game5(Menu p)
         {
             parent = p;
             InitializeComponent();
             parent.Hide();
             this.Show();
+            return;
         }
 
+        /// <summary>
+        /// Call this when finish the puzzle.
+        /// It will show the scoresboard and user should selected what to do next.
+        /// </summary>
         private void switchFrame() {
-            ScoreBoard s = new ScoreBoard();
-            this.Close();
-            parent.Show();
+            ScoreBoard s = new ScoreBoard(this);
+            return;
         }
 
+        /// <summary>
+        /// Initial everything, 
+        /// including buttons genetrating, music setting, name binding and time setting.
+        /// </summary>
         private void Game5_Load(object sender, EventArgs e)
         {
             // background music setting
-            wmp.URL = "background.mp3";
+            wmp.URL = DEFINE.M_BACKGROUND;
 
             // genetrate button
             for (int y = 0; y < DEFINE.ROW_SIZE; y++)
@@ -68,18 +83,30 @@ namespace GameProject
             remaining_card = DEFINE.COL_SIZE * DEFINE.ROW_SIZE / 2;
 
             // initial the timer
-            t_conumter = 0;
+            t_counter = 0;
             timer1.Interval = 1000;
             timer1.Tick += new EventHandler(timer1_Tick);
             timer1.Enabled = true;
             return;
         }
 
+        /// <summary>
+        /// Enter your row and column number and get the index.
+        /// Used to get each button's value,
+        /// because it would be easier than using two-dimensional array to check value.
+        /// </summary>
+        /// <param name="x">column number</param>
+        /// <param name="y">row number</param>
+        /// <returns>index</returns>
         private int index(int x, int y)
         {
             return y * DEFINE.COL_SIZE + x;
         }
 
+        /// <summary>
+        /// Shuffle the cards.
+        /// You can set "how many times you want to shuffle" in DEFINE class
+        /// </summary>
         private void shuffle() {
             // genetrate number to each card
             for (int n = 0; n < DEFINE.SHUFFLE_TIMES; n++)
@@ -94,8 +121,13 @@ namespace GameProject
             return;
         }
 
+
         bool se = false;    // selected boolean
         Button target;      // selected button reference
+        /// <summary>
+        /// Each button which be genetrated by the program will be binded to this function.
+        /// It will handle each situation and change pictureson each cards.
+        /// </summary>
         private void Button_Click(Object sender, EventArgs e)
         {
             Button this_sender = (Button)sender;
@@ -104,6 +136,7 @@ namespace GameProject
                 // first time situation
                 Text = "";
                 target = this_sender;
+                s_counter++;
                 se = true;
             }else if (this_sender.Equals(target)){
                 // select same situation (do nothing)
@@ -127,7 +160,11 @@ namespace GameProject
             return;
         }
 
-        private void reset() {
+        /// <summary>
+        /// You can reset game by using this function, 
+        /// like shuffle the cards again, initial the con\unter and timer.
+        /// </summary>
+        public void reset() {
             // show all of the buttons
             for (int y = 0; y < DEFINE.ROW_SIZE; y++)
                 for (int x = 0; x < DEFINE.COL_SIZE; x++)
@@ -138,22 +175,28 @@ namespace GameProject
 
             // initial the counter
             remaining_card = DEFINE.COL_SIZE * DEFINE.ROW_SIZE / 2;
+            s_counter = 0;
 
             // reenable timer.
-            t_conumter = 0;
+            t_counter = 0;
             timer1.Enabled = true;
             return;
         }
 
+        /// <summary>
+        /// Timer function.
+        /// p.s. timer will getting fired twice.
+        /// </summary>
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //t_conumter++;
-            //Text = Convert.ToString(t_conumter);
+            t_counter++;
+            Text = Convert.ToString(t_counter);
         }
 
         private void Game5_FormClosed(object sender, FormClosedEventArgs e)
         {
             wmp.close();
+            parent.Show();
         }
     }
 
@@ -166,7 +209,7 @@ namespace GameProject
         public const int SHUFFLE_TIMES = 200;
         public const String S_TRUE = "../../Resources/sound/true.wav";
         public const String S_FALSE = "../../Resources/sound/false.wav";
-        public const String M_BACKGROUND = "../../Resources/music/background.mp3";
+        public const String M_BACKGROUND = "background.mp3";
     }
 
     static class Tools

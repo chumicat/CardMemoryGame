@@ -84,6 +84,7 @@
             this.b_Restart.TabIndex = 0;
             this.b_Restart.Text = "Restart";
             this.b_Restart.UseVisualStyleBackColor = true;
+            this.b_Restart.Click += new System.EventHandler(this.b_Restart_Click);
             // 
             // b_Back
             // 
@@ -95,6 +96,7 @@
             this.b_Back.TabIndex = 1;
             this.b_Back.Text = "Back";
             this.b_Back.UseVisualStyleBackColor = true;
+            this.b_Back.Click += new System.EventHandler(this.b_Back_Click);
             // 
             // tableLayoutPanel3
             // 

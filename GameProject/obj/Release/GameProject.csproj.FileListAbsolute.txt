@@ -6,7 +6,6 @@ C:\Users\Administrator\Desktop\GameProject\GameProject\bin\Release\GameProject.e
 C:\Users\Administrator\Desktop\GameProject\GameProject\bin\Release\GameProject.pdb
 C:\Users\Administrator\Desktop\GameProject\GameProject\bin\Release\Interop.WMPLib.dll
 C:\Users\Administrator\Desktop\GameProject\GameProject\bin\Release\AxInterop.WMPLib.dll
-C:\Users\Administrator\Desktop\GameProject\GameProject\obj\Release\GameProject.Form1.resources
 C:\Users\Administrator\Desktop\GameProject\GameProject\obj\Release\GameProject.Game5.resources
 C:\Users\Administrator\Desktop\GameProject\GameProject\obj\Release\GameProject.Properties.Resources.resources
 C:\Users\Administrator\Desktop\GameProject\GameProject\obj\Release\GameProject.ScoreBoard.resources
@@ -14,3 +13,4 @@ C:\Users\Administrator\Desktop\GameProject\GameProject\obj\Release\GameProject.c
 C:\Users\Administrator\Desktop\GameProject\GameProject\obj\Release\GameProject.exe
 C:\Users\Administrator\Desktop\GameProject\GameProject\obj\Release\GameProject.pdb
 C:\Users\Administrator\Desktop\GameProject\GameProject\obj\Release\GameProject.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\GameProject\GameProject\obj\Release\GameProject.Menu.resources

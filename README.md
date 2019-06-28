@@ -1,7 +1,10 @@
 # Card Memory Game
 Version： v 1.8
+
 ReadMe? No!! DONT READ ME!
+
 Program is work fine, but document is not complete.
+
 This Doucment is collect most data that I had stored, so it is not complete.
 
 ## Game Design Acquirement

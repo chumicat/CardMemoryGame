@@ -63,9 +63,19 @@ namespace GameProject.Properties {
         /// <summary>
         ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
         /// </summary>
-        internal static System.Drawing.Bitmap menu01 {
+        internal static System.Drawing.Bitmap enterButton {
             get {
-                object obj = ResourceManager.GetObject("menu01", resourceCulture);
+                object obj = ResourceManager.GetObject("enterButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap gameBack {
+            get {
+                object obj = ResourceManager.GetObject("gameBack", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

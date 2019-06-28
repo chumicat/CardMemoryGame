@@ -10,8 +10,6 @@ using System.Windows.Forms;
 using System.Media;
 using WMPLib;
 
-
-
 namespace GameProject
 {
     public partial class Game5 : Form
@@ -22,6 +20,7 @@ namespace GameProject
         private Random rnd = new Random();
         public Menu parent;
         public bool autoFlipBack = false;
+        public bool correctDelay = false;
         public static String C_FOLDER;
 
         // counter to store something
@@ -49,7 +48,6 @@ namespace GameProject
         /// It will show the scoresboard and user should selected what to do next.
         /// </summary>
         private void switchFrame() {
-            t_counter /= 2;
             ScoreBoard s = new ScoreBoard(this);
             return;
         }
@@ -74,13 +72,14 @@ namespace GameProject
                     buttons[x, y].Size = new Size((this.Width - DEFINE.WIDTH_GAP) / DEFINE.COL_SIZE, (this.Height - DEFINE.HEIGHT_GAP) / DEFINE.ROW_SIZE);
                     buttons[x, y].Click += new EventHandler(this.Button_Click);
                     buttons[x, y].Name = index(x, y).ToString();
+                    buttons[x, y].BackgroundImage = Image.FromFile(DEFINE.I_BACKEXTEND);
                     plane[index(x, y)] = index(x, y)%(DEFINE.COL_SIZE* DEFINE.ROW_SIZE/2);
                 }
             }
 
             // initial the timer
             timer1.Interval = 1000;
-            timer1.Tick += new EventHandler(timer1_Tick);
+            timer1.Start();
 
             // initial normal setting
             reset();
@@ -157,10 +156,14 @@ namespace GameProject
                     // select same situation (do nothing)
                 }else if (plane[Convert.ToInt32(first.Name)] == plane[Convert.ToInt32(this_sender.Name)]){
                     // correct situation
+                    sound_true.Play();
+                    if (correctDelay) {
+                        this_sender.Image = Image.FromFile(cardPhotoAddress(plane[Convert.ToInt32(this_sender.Name)]));
+                        Task.WaitAll(Task.Delay(DEFINE.DELAY_TIME));
+                    }
                     first.Hide();
                     this_sender.Hide();
                     remaining_card--;
-                    sound_true.Play();
                     se = false;
                     // end of game
                     if (remaining_card == 0)
@@ -227,6 +230,8 @@ namespace GameProject
         {
             t_counter++;
             Text = t_counter.ToString();
+            if (wmp.playState == WMPPlayState.wmppsStopped)
+                wmp.URL = DEFINE.M_BACKGROUND;
         }
 
         /// <summary>
@@ -245,20 +250,23 @@ namespace GameProject
 
     class DEFINE
     {
-        public const int ROW_SIZE = 4;
-        public const int COL_SIZE = 8;
+        public static int ROW_SIZE = 4;
+        public static int COL_SIZE = 1;
         public const int WIDTH_GAP = 16;
         public const int HEIGHT_GAP = 38;
         public const int SHUFFLE_TIMES = 200;
         public const int DELAY_TIME = 1200;
-        public const int MIN_STEP = ROW_SIZE * COL_SIZE / 2;
-        public const int MAX_STEP = 200 + MIN_STEP;
+        public static int MIN_STEP = ROW_SIZE * COL_SIZE / 2;
+        public static int MAX_STEP = 200 + MIN_STEP;
         public const int STEP_SCALES = 1;
         public const int MAX_TIME = 180;
         public const int TIME_SCALE = 2;
         public const String S_TRUE = "../../Resources/sound/true.wav";
         public const String S_FALSE = "../../Resources/sound/false.wav";
+        public const String S_ENTER = "../../Resources/sound/enter.wav";
         public const String M_BACKGROUND = "background.mp3";
+        public const String M_MENU = "menu.mp3";
+        public const String I_BACKEXTEND = "../../Resources/game5_image/other/cardExtend.png";
         public static String C_BACK;
         public static String C_PRE;
         public static String C_POST;

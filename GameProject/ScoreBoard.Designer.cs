@@ -47,14 +47,14 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(348, 195);
             this.tableLayoutPanel1.TabIndex = 0;
@@ -67,20 +67,20 @@
             this.tableLayoutPanel2.Controls.Add(this.b_Restart, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.b_Back, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 128);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 123);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(342, 64);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(342, 69);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // b_Restart
             // 
             this.b_Restart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.b_Restart.Font = new System.Drawing.Font("標楷體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.b_Restart.Font = new System.Drawing.Font("SimHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.b_Restart.Location = new System.Drawing.Point(3, 3);
             this.b_Restart.Name = "b_Restart";
-            this.b_Restart.Size = new System.Drawing.Size(165, 58);
+            this.b_Restart.Size = new System.Drawing.Size(165, 63);
             this.b_Restart.TabIndex = 0;
             this.b_Restart.Text = "Restart";
             this.b_Restart.UseVisualStyleBackColor = true;
@@ -89,10 +89,10 @@
             // b_Back
             // 
             this.b_Back.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.b_Back.Font = new System.Drawing.Font("標楷體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.b_Back.Font = new System.Drawing.Font("SimHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.b_Back.Location = new System.Drawing.Point(174, 3);
             this.b_Back.Name = "b_Back";
-            this.b_Back.Size = new System.Drawing.Size(165, 58);
+            this.b_Back.Size = new System.Drawing.Size(165, 63);
             this.b_Back.TabIndex = 1;
             this.b_Back.Text = "Back";
             this.b_Back.UseVisualStyleBackColor = true;
@@ -113,20 +113,20 @@
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(342, 119);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(342, 114);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // l_Scores
             // 
             this.l_Scores.AutoSize = true;
             this.l_Scores.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.l_Scores.Font = new System.Drawing.Font("標楷體", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.l_Scores.Location = new System.Drawing.Point(3, 78);
+            this.l_Scores.Font = new System.Drawing.Font("SimHei", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.l_Scores.Location = new System.Drawing.Point(3, 80);
             this.l_Scores.Name = "l_Scores";
-            this.l_Scores.Size = new System.Drawing.Size(165, 41);
+            this.l_Scores.Size = new System.Drawing.Size(165, 40);
             this.l_Scores.TabIndex = 0;
             this.l_Scores.Text = "Scores";
             this.l_Scores.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -135,10 +135,10 @@
             // 
             this.l_Time.AutoSize = true;
             this.l_Time.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.l_Time.Font = new System.Drawing.Font("標楷體", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.l_Time.Font = new System.Drawing.Font("SimHei", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.l_Time.Location = new System.Drawing.Point(3, 0);
             this.l_Time.Name = "l_Time";
-            this.l_Time.Size = new System.Drawing.Size(165, 39);
+            this.l_Time.Size = new System.Drawing.Size(165, 40);
             this.l_Time.TabIndex = 2;
             this.l_Time.Text = "Time";
             this.l_Time.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -147,10 +147,10 @@
             // 
             this.l_Step.AutoSize = true;
             this.l_Step.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.l_Step.Font = new System.Drawing.Font("標楷體", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.l_Step.Location = new System.Drawing.Point(3, 39);
+            this.l_Step.Font = new System.Drawing.Font("SimHei", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.l_Step.Location = new System.Drawing.Point(3, 40);
             this.l_Step.Name = "l_Step";
-            this.l_Step.Size = new System.Drawing.Size(165, 39);
+            this.l_Step.Size = new System.Drawing.Size(165, 40);
             this.l_Step.TabIndex = 3;
             this.l_Step.Text = "Step";
             this.l_Step.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -159,10 +159,10 @@
             // 
             this.r_Time.AutoSize = true;
             this.r_Time.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.r_Time.Font = new System.Drawing.Font("標楷體", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.r_Time.Font = new System.Drawing.Font("SimHei", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.r_Time.Location = new System.Drawing.Point(174, 0);
             this.r_Time.Name = "r_Time";
-            this.r_Time.Size = new System.Drawing.Size(165, 39);
+            this.r_Time.Size = new System.Drawing.Size(165, 40);
             this.r_Time.TabIndex = 4;
             this.r_Time.Text = "label1";
             this.r_Time.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -171,10 +171,10 @@
             // 
             this.r_Step.AutoSize = true;
             this.r_Step.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.r_Step.Font = new System.Drawing.Font("標楷體", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.r_Step.Location = new System.Drawing.Point(174, 39);
+            this.r_Step.Font = new System.Drawing.Font("SimHei", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.r_Step.Location = new System.Drawing.Point(174, 40);
             this.r_Step.Name = "r_Step";
-            this.r_Step.Size = new System.Drawing.Size(165, 39);
+            this.r_Step.Size = new System.Drawing.Size(165, 40);
             this.r_Step.TabIndex = 5;
             this.r_Step.Text = "label2";
             this.r_Step.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -183,10 +183,10 @@
             // 
             this.r_Scores.AutoSize = true;
             this.r_Scores.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.r_Scores.Font = new System.Drawing.Font("標楷體", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.r_Scores.Location = new System.Drawing.Point(174, 78);
+            this.r_Scores.Font = new System.Drawing.Font("SimHei", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.r_Scores.Location = new System.Drawing.Point(174, 80);
             this.r_Scores.Name = "r_Scores";
-            this.r_Scores.Size = new System.Drawing.Size(165, 41);
+            this.r_Scores.Size = new System.Drawing.Size(165, 40);
             this.r_Scores.TabIndex = 6;
             this.r_Scores.Text = "label3";
             this.r_Scores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

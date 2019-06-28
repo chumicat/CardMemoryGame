@@ -16,8 +16,9 @@ namespace GameProject
 {
     public partial class Game5 : Form
     {
+        Form1 parent;
         Button[,] buttons = new Button[DEFINE.COL_SIZE, DEFINE.ROW_SIZE];
-        int[,] plane = new int[DEFINE.COL_SIZE, DEFINE.ROW_SIZE];
+        int[] plane = new int[DEFINE.COL_SIZE*DEFINE.ROW_SIZE];
         Random rnd = new Random();
         int t_conumter = 0;
         int remaining_card; // unit is pair
@@ -25,9 +26,18 @@ namespace GameProject
         SoundPlayer sound_false = new SoundPlayer(DEFINE.S_FALSE);
         WindowsMediaPlayer wmp = new WindowsMediaPlayer();
 
-        public Game5()
+        public Game5(Form1 p)
         {
+            parent = p;
             InitializeComponent();
+            parent.Hide();
+            this.Show();
+        }
+
+        private void switchFrame() {
+            ScoreBoard s = new ScoreBoard();
+            this.Close();
+            parent.Show();
         }
 
         private void Game5_Load(object sender, EventArgs e)
@@ -47,9 +57,7 @@ namespace GameProject
                     buttons[x, y].Click += new EventHandler(this.Button_Click);
                     buttons[x, y].Text = Convert.ToString(index(x, y));
                     buttons[x, y].Name = Convert.ToString(index(x, y));
-                    plane[x, y] = index(x, y)%(DEFINE.COL_SIZE* DEFINE.ROW_SIZE/2);
-                    //Text = Convert.ToString(buttons[x, y].Size.ToString());
-                    
+                    plane[index(x, y)] = index(x, y)%(DEFINE.COL_SIZE* DEFINE.ROW_SIZE/2);
                 }
             }
 
@@ -75,13 +83,13 @@ namespace GameProject
         private void shuffle() {
             // genetrate number to each card
             for (int n = 0; n < DEFINE.SHUFFLE_TIMES; n++)
-                Tools.Swap<int>(ref plane[rnd.Next() % DEFINE.COL_SIZE, rnd.Next() % DEFINE.ROW_SIZE],
-                                ref plane[rnd.Next() % DEFINE.COL_SIZE, rnd.Next() % DEFINE.ROW_SIZE]);
+                Tools.Swap<int>(ref plane[rnd.Next() % (DEFINE.COL_SIZE * DEFINE.ROW_SIZE)],
+                                ref plane[rnd.Next() % (DEFINE.COL_SIZE * DEFINE.ROW_SIZE)]);
 
             // tmp part to make num print on screem
             for (int y = 0; y < DEFINE.ROW_SIZE; y++)
                 for (int x = 0; x < DEFINE.COL_SIZE; x++)
-                    buttons[x, y].Text = Convert.ToString(plane[x, y]);
+                    buttons[x, y].Text = Convert.ToString(plane[index(x, y)]);
 
             return;
         }
@@ -99,7 +107,8 @@ namespace GameProject
                 se = true;
             }else if (this_sender.Equals(target)){
                 // select same situation (do nothing)
-            }else if (Convert.ToInt32(target.Text) == Convert.ToInt32(this_sender.Text)){
+            }else if (plane[Convert.ToInt32(target.Name)] == plane[Convert.ToInt32(this_sender.Name)])
+            {
                 // correct situation
                 target.Hide();
                 this_sender.Hide();
@@ -108,8 +117,7 @@ namespace GameProject
                 se = false;
                 // end of game
                 if (remaining_card == 0) {
-                    this.Hide();
-                    Parent.Show();
+                    switchFrame();
                 }
             }else{
                 // false situation

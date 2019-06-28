@@ -12,9 +12,22 @@ namespace GameProject
 {
     public partial class ScoreBoard : Form
     {
+        Game5 parent;
         public ScoreBoard()
         {
             InitializeComponent();
+        }
+
+        private void switchFrame()
+        {
+            ScoreBoard s = new ScoreBoard();
+            this.Close();
+            parent.Show();
+        }
+
+        private void ScoreBoard_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

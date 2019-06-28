@@ -19,9 +19,7 @@ namespace GameProject
 
         private void b_game5_Click(object sender, EventArgs e)
         {
-            Game5 t = new Game5();
-            t.Show();
-            this.Hide();
+            Game5 t = new Game5(this);
         }
     }
 }

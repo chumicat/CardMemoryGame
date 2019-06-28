@@ -16,11 +16,13 @@ namespace GameProject
 {
     public partial class Game5 : Form
     {
-        // plane , tool and reference
+        // plane , tool, reference, and setting
         private Button[,] buttons = new Button[DEFINE.COL_SIZE, DEFINE.ROW_SIZE];
         private int[] plane = new int[DEFINE.COL_SIZE * DEFINE.ROW_SIZE];
         private Random rnd = new Random();
         public Menu parent;
+        public bool autoFlipBack = false;
+        public static String C_FOLDER;
 
         // counter to store something
         private int remaining_card; // unit is pair
@@ -124,7 +126,9 @@ namespace GameProject
         }
 
         bool se = false;    // selected boolean
-        Button target;      // selected button reference
+        bool firstTime = true;
+        Button first;      // selected button first time
+        Button second;      // selected button this time
         /// <summary>
         /// Each button which be genetrated by the program will be binded to this function.
         /// It will handle each situation and change pictureson each cards.
@@ -133,35 +137,46 @@ namespace GameProject
         {
             Button this_sender = (Button)sender;
 
-            if (!se) {
+            if (!se)    // first time situation
+            {
                 // first time situation
                 Text = "";
-                target = this_sender;
+                if (!firstTime && !autoFlipBack)
+                {
+                    first.Image = Image.FromFile(DEFINE.C_BACK);
+                    second.Image = Image.FromFile(DEFINE.C_BACK);
+                }
+                first = this_sender;
                 s_counter++;
                 this_sender.Image = Image.FromFile(cardPhotoAddress(plane[Convert.ToInt32(this_sender.Name)]));
                 se = true;
-            }else if (this_sender.Equals(target)){
-                // select same situation (do nothing)
-            }else if (plane[Convert.ToInt32(target.Name)] == plane[Convert.ToInt32(this_sender.Name)]){
-                // correct situation
-                target.Hide();
-                this_sender.Hide();
-                remaining_card--;
-                sound_true.Play();
-                se = false;
-                // end of game
-                if (remaining_card == 0) {
-                    switchFrame();
+                firstTime = false;
+            }else {      // Second time situation
+                second = this_sender;
+                if (this_sender.Equals(first)){
+                    // select same situation (do nothing)
+                }else if (plane[Convert.ToInt32(first.Name)] == plane[Convert.ToInt32(this_sender.Name)]){
+                    // correct situation
+                    first.Hide();
+                    this_sender.Hide();
+                    remaining_card--;
+                    sound_true.Play();
+                    se = false;
+                    // end of game
+                    if (remaining_card == 0)
+                        switchFrame();
+                }else{
+                    // false situation
+                    sound_false.Play();
+                    this_sender.Image = Image.FromFile(cardPhotoAddress(plane[Convert.ToInt32(this_sender.Name)]));
+                    if (autoFlipBack){
+                        Task.WaitAll(Task.Delay(DEFINE.DELAY_TIME));
+                        first.Image = Image.FromFile(DEFINE.C_BACK);
+                        this_sender.Image = Image.FromFile(DEFINE.C_BACK);
+                    }
+                    // should clear mouse event queue here, but I didn't nkow how
+                    se = false;
                 }
-            }else{
-                // false situation
-                sound_false.Play();
-                this_sender.Image = Image.FromFile(cardPhotoAddress(plane[Convert.ToInt32(this_sender.Name)]));
-                Task.WaitAll(Task.Delay(DEFINE.DELAY_TIME));
-                target.Image = Image.FromFile(DEFINE.C_BACK);
-                this_sender.Image = Image.FromFile(DEFINE.C_BACK);
-                // should clear mouse event queue here, but I didn't nkow how
-                se = false;
             }
             return;
         }
@@ -181,6 +196,9 @@ namespace GameProject
         /// like shuffle the cards again, initial the con\unter and timer.
         /// </summary>
         public void reset() {
+            // refresh the DEFINE
+            DEFINE.refresh();
+
             // show all of the buttons
             for (int y = 0; y < DEFINE.ROW_SIZE; y++)
                 for (int x = 0; x < DEFINE.COL_SIZE; x++) {
@@ -220,10 +238,12 @@ namespace GameProject
         {
             wmp.close();
             parent.Show();
+            parent.resetSkin();
+            Game5.C_FOLDER = null;
         }
     }
 
-    static class DEFINE
+    class DEFINE
     {
         public const int ROW_SIZE = 4;
         public const int COL_SIZE = 8;
@@ -234,10 +254,17 @@ namespace GameProject
         public const String S_TRUE = "../../Resources/sound/true.wav";
         public const String S_FALSE = "../../Resources/sound/false.wav";
         public const String M_BACKGROUND = "background.mp3";
-        public const String C_BACK = "../../Resources/game5_image/CB.png";
-        public const String C_PRE = "../../Resources/game5_image/C";
-        public const String C_POST = ".png";
+        public static String C_BACK;
+        public static String C_PRE;
+        public static String C_POST;
+        public static void refresh() {
+            C_BACK = "../../Resources/game5_image/" + Game5.C_FOLDER + "/CB.png";
+            C_PRE = "../../Resources/game5_image/" + Game5.C_FOLDER + "/C";
+            C_POST = ".png";
+        }
     }
+
+
 
     static class Tools
     {
@@ -247,11 +274,6 @@ namespace GameProject
             temp = lhs;
             lhs = rhs;
             rhs = temp;
-        }
-
-        public static bool returnTime()
-        {
-            return false;
         }
     }
 }
